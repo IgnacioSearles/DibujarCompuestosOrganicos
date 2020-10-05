@@ -1,4 +1,4 @@
-#Dibujar Compuestos - Ignacio Searles
+# Dibujar Compuestos - Ignacio Searles
 
 Dibujar compuestos es una simple aplicacion web que te permite dibujar compuestos organicos en su forma semi-desarrollada.
 
