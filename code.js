@@ -116,7 +116,7 @@ const dibujarRamificaciones = async (compuesto, coordsCarbonos) => {
 
                         ctx.fillRect(x_rect, y_rect, 3, 40);
 
-                        const x = coordsCarbonos[num - 1] + ((coordsCarbonos[num] - (coordsCarbonos[num - 1] + 20)) / 2);
+                        const x = x_rect - c_image.width/2;
                         const y = (up_async) ? height / 2 - 40 - c_image.height : height / 2 + 25 + 40;
                         ctx.drawImage(c_image, x, y);
                         up_async = !up_async;
