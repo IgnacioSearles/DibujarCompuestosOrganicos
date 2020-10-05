@@ -2,4 +2,4 @@
 
 Dibujar compuestos es una simple aplicacion web que te permite dibujar compuestos organicos en su forma semi-desarrollada.
 
-[Link a la pagina web](compuestos-organicos.netlify.app)
+[Link a la pagina web](https://compuestos-organicos.netlify.app/)
