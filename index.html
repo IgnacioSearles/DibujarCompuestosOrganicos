@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/default/bulmaswatch.min.css">
+    <title>Dibujar Compuestos</title>
+</head>
+<body>
+    <div class="notification" style="margin: 25px;">
+        <h2 class="title is-2" style="text-align: center;">Dibujar Compuestos - by Ignacio Searles</h2>
+        <p style="margin-bottom: 20px;">Su compuesto debe seguir la siguiente estructura: <strong>4,5 etil-1,2 metil-nonano</strong><br>
+        -Poner espacios entre el numero y el compuesto.<br>
+        -NO poner di, ni tri.<br>
+        -Poner un "-" entre cada compuesto.<br>
+        -En caso de que se superpongan las ramificaciones vuelva a presionar el boton.<br>
+        -Hacer click derecho sobre el compuesto para guardarlo como imagen.</p>
+    
+        <label class="label" for="compuesto">Ingresar Compuesto:</label>
+
+        <div style="display: flex;">
+            <input class="input" name="compuesto" type="text" id="text__compuesto">
+            <button class="button" id="btn__dibujar">Dibujar</button>
+        </div>
+        
+        <center>
+            <canvas id="main__canvas" width="750" height="480"></canvas>
+        </center>
+    </div>
+    <script src="code.js"></script>
+</body>
+</html>
