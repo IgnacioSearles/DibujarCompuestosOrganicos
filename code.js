@@ -12,15 +12,6 @@ const cadenasPrincipales = ["et", "prop", "but", "pent", "hex", "hept", "oct", "
 const subFijos = ["an", "en", "in"];
 const ramificaciones = ["metil", " etil", " propil", " butil", "isopropil", "isobutil", "secbutil", "terbutil", "ol", "fenil"];
 
-const isLetter = (char) => {
-    if (char >= 'A' && char <= 'Z')
-        return true;
-    if (char >= 'a' && char <= 'z')
-        return true;
-
-    return false;
-};
-
 const casosEspeciales = (compuesto) => {
     let numCarbonos = [];
 
@@ -58,7 +49,7 @@ const getNumCarbonos = (compuesto) => {
 
     //Determinar cuantos enlaces usan los dobles-triples enlaces
     for (let i = 1; i < subFijos.length; i++){
-        if (compuesto.includes(subFijos[i]) && !isLetter(compuesto[compuesto.search(subFijos[i]) + 2])){
+        if (compuesto.includes(subFijos[i])){
             for(let j = compuesto.search(subFijos[i]); j >= 0; j--){
                 if (j < 0 || compuesto[j] == '-')
                     break;
@@ -151,7 +142,7 @@ const dibujarRamificaciones = async (compuesto, coordsCarbonos) => {
 const dibujarEnlances = (compuesto, coordsCarbonos) => {
     //Fijarse que doble-triple enlace tiene cada compuesto y dibujar dependiendo de la posicion
     for (let i = 1; i < subFijos.length; i++){
-        if (compuesto.includes(subFijos[i]) && !isLetter(compuesto[compuesto.search(subFijos[i]) + 2])){
+        if (compuesto.includes(subFijos[i])){
             for(let j = compuesto.search(subFijos[i]); j >= 0; j--){
                 if (j < 0 || compuesto[j] == '-')
                     break;
