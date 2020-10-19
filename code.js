@@ -12,10 +12,21 @@ const cadenasPrincipales = ["et", "prop", "but", "pent", "hex", "hept", "oct", "
 const subFijos = ["an", "en", "in"];
 const ramificaciones = ["metil", " etil", " propil", " butil", "isopropil", "isobutil", "secbutil", "terbutil", "ol"];
 
+const casosEspeciales = (compuesto) => {
+    let numCarbonos = [];
+
+    //Buscar excepciones
+    if (compuesto.includes("eter")){
+        numCarbonos.push(4);
+        return numCarbonos;
+    }
+};
+
 const getNumCarbonos = (compuesto) => {
 
     let numCarbonos = [];
 
+    //Determinar numero de carbonos-enlaces
     numCarbonos.push(3);
     for (let i = 0; i < cadenasPrincipales.length; i++) {
         subFijos.forEach(subFijo => {
@@ -28,6 +39,7 @@ const getNumCarbonos = (compuesto) => {
         });
     }
 
+    //Determinar cuantos enlaces usan las famificaciones
     for (let i = 1; i <= numCarbonos.length; i++) {
         for (let c of compuesto) {
             if (i.toString() === c)
@@ -35,6 +47,7 @@ const getNumCarbonos = (compuesto) => {
         }
     }
 
+    //Determinar cuantos enlaces usan los dobles-triples enlaces
     for (let i = 1; i < subFijos.length; i++){
         if (compuesto.includes(subFijos[i])){
             for(let j = compuesto.search(subFijos[i]); j >= 0; j--){
@@ -48,8 +61,6 @@ const getNumCarbonos = (compuesto) => {
             }
         }
     }
-
-    console.log(numCarbonos);
 
     return numCarbonos;
 };
@@ -94,8 +105,7 @@ const dibujarCadenaPrincipal = (numCarbonos, coordsCarbonos) => {
 };
 
 const dibujarRamificaciones = async (compuesto, coordsCarbonos) => {
-
-    
+    //Fijarse que ramificaciones tiene cada compuesto y dibujar dependiendo de la posicion
     ramificaciones.forEach(ramificacion => {
         let up = (Math.random() > 0.5) ? true : false;
         let up_async = up;
@@ -130,6 +140,7 @@ const dibujarRamificaciones = async (compuesto, coordsCarbonos) => {
 };
 
 const dibujarEnlances = (compuesto, coordsCarbonos) => {
+    //Fijarse que doble-triple enlace tiene cada compuesto y dibujar dependiendo de la posicion
     for (let i = 1; i < subFijos.length; i++){
         if (compuesto.includes(subFijos[i])){
             for(let j = compuesto.search(subFijos[i]); j >= 0; j--){
@@ -165,7 +176,10 @@ btn_dibujar.addEventListener('click', () => {
 
     const compuesto = document.getElementById("text__compuesto").value;
 
-    const numCarbonos = getNumCarbonos(compuesto);
+    let numCarbonos = casosEspeciales(compuesto);
+
+    if (numCarbonos.length <= 0) numCarbonos = getNumCarbonos(compuesto);
+
     const coordsCarbonos = getCoords(numCarbonos);
 
     dibujarCadenaPrincipal(numCarbonos, coordsCarbonos);
