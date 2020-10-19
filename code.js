@@ -178,7 +178,7 @@ btn_dibujar.addEventListener('click', () => {
 
     let numCarbonos = casosEspeciales(compuesto);
 
-    if (numCarbonos.length <= 0) numCarbonos = getNumCarbonos(compuesto);
+    if (numCarbonos == undefined) numCarbonos = getNumCarbonos(compuesto);
 
     const coordsCarbonos = getCoords(numCarbonos);
 
