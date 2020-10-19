@@ -10,7 +10,7 @@ const height = parseInt(canvas.height);
 
 const cadenasPrincipales = ["et", "prop", "but", "pent", "hex", "hept", "oct", "non", "dec"];
 const subFijos = ["an", "en", "in"];
-const ramificaciones = ["metil", " etil", " propil", " butil", "isopropil", "isobutil", "secbutil", "terbutil", "ol"];
+const ramificaciones = ["metil", " etil", " propil", " butil", "isopropil", "isobutil", "secbutil", "terbutil", "ol", "fenil"];
 
 const casosEspeciales = (compuesto) => {
     let numCarbonos = [];
